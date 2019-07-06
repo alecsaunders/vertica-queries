@@ -10,7 +10,7 @@ WHERE
         AND is_active
 ;
 
-SELECT SUM(transferred_bytes), SUM(to_transfer_bytes), SUM(transferred_bytes) / (SUM(transferred_bytes) + SUM(to_transfer_bytes)), MAX(CURRENT_TIMESTAMP)
+SELECT SUM(separated_bytes) / (SUM(separated_bytes) + SUM(to_separate_bytes)) separated_perc, SUM(transferred_bytes) / (SUM(transferred_bytes) + SUM(to_transfer_bytes)) transfer_perc, MAX(CURRENT_TIMESTAMP)
 FROM rebalance_projection_status;
 
 SELECT rebalance_method Rebalance_method, Status, COUNT(*) AS Count
