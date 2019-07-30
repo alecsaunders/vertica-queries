@@ -9,6 +9,6 @@ FROM (
                 PERCENTILE_CONT(0.95) WITHIN GROUP(ORDER BY request_duration_ms) OVER (PARTITION BY LEFT(request, 130)) AS P95
         FROM query_requests
         WHERE
-                AND request_type = 'QUERY'
+                request_type = 'QUERY'
 )x
 GROUP BY Q1, MEDIAN, Q3, P95, left_request;
