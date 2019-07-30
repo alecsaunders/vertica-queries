@@ -18,6 +18,6 @@ FROM (
         FROM query_requests
 ) qr
 WHERE
-        user_name = 'panda_user'
+        user_name = 'dbadmin'
 GROUP BY query_type
 ORDER BY query_type;
